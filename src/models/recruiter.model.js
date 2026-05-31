@@ -16,6 +16,7 @@ class RecruiterModel {
     const recruiter = new RecruiterModel(id,name,email,password);
     this.recruiters.push(recruiter);
     return recruiter;
+    
   }
 
   static findByEmail(email) {

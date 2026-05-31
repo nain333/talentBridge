@@ -1,6 +1,7 @@
 import { Router } from "express";
 import authController from "../controllers/auth.controller.js";
-import { loginValidator, registerValidator } from "../middlewares/auth.validation.middleware.js";
+import { loginValidator, registerValidator,isAuthenticated } from "../middlewares/auth.validation.middleware.js";
+
 
 const router = Router();
 
@@ -10,5 +11,8 @@ router.post("/login",loginValidator,authController.postSignIn);
 router.get("/register", authController.renderRegister);
 router.post("/register", registerValidator,authController.postRegister);
 router.post("/logout", authController.logout);
+router.get("/secret", isAuthenticated, (req, res) => {
+  res.send("Protected Route");
+});
 
 export default router;

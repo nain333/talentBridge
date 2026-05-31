@@ -17,7 +17,9 @@ export const registerValidator = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+        console.log('errors:  ', errors)
       return res.render("auth/register", {
+        error:null,
         errors: errors.array(),
       });
     }
@@ -40,6 +42,7 @@ export const loginValidator = [
 
     if (!errors.isEmpty()) {
       return res.render("auth/signIn", {
+        error:null,
         errors: errors.array(),
       });
     }
@@ -47,3 +50,10 @@ export const loginValidator = [
     next();
   },
 ];
+export const isAuthenticated = (req, res, next) => {
+  if (!req.session.recruiterId) {
+    return res.redirect("/login");
+  }
+
+  next();
+};

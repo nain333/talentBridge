@@ -1,20 +1,24 @@
 import RecruiterModel from "../models/recruiter.model.js";
 
 class AuthController {
-
   renderRegister(req, res) {
-    res.render("auth/register");
+    res.render("auth/register", {
+      error: null,
+      errors: [],
+    });
   }
 
   renderLogin(req, res) {
-    res.render("auth/signIn");
+    res.render("auth/signIn", {
+      error: null,
+      errors: [],
+    });
   }
 
   postRegister(req, res) {
     const { name, email, password } = req.body;
 
-    const existingRecruiter =
-      RecruiterModel.findByEmail(email);
+    const existingRecruiter = RecruiterModel.findByEmail(email);
 
     if (existingRecruiter) {
       return res.render("auth/register", {
@@ -27,6 +31,7 @@ class AuthController {
       email,
       password,
     });
+   
 
     res.redirect("/login");
   }
@@ -34,20 +39,17 @@ class AuthController {
   postSignIn(req, res) {
     const { email, password } = req.body;
 
-    const recruiter =
-      RecruiterModel.findByEmail(email);
+    const recruiter = RecruiterModel.findByEmail(email);
 
-    if (
-      !recruiter ||
-      recruiter.password !== password
-    ) {
+    if (!recruiter || recruiter.password !== password) {
       return res.render("auth/signIn", {
         error: "Invalid credentials",
+        errors:null
       });
     }
 
     req.session.recruiterId = recruiter.id;
-
+    
     res.redirect("/jobs");
   }
 

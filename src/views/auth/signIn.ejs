@@ -12,11 +12,19 @@
             </p>
           </div>
 
-          <% if(typeof error !== 'undefined'){ %>
-            <div class="alert alert-danger">
-              <%= error %>
-            </div>
-          <% } %>
+          <% if (error) { %>
+  <div class="alert alert-danger">
+    <%= error %>
+  </div>
+<% } %>
+
+<% if (errors && errors.length > 0) { %>
+  <% errors.forEach(error => { %>
+    <div class="alert alert-danger">
+      <%= error.msg %>
+    </div>
+  <% }) %>
+<% } %>
 
           <form action="/login" method="POST">
 
