@@ -1,6 +1,10 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.routes.js";
+import homeRoutes from "./routes/home.routes.js"
+
+
 
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
@@ -30,10 +34,7 @@ app.set("view engine","ejs")
 app.set("views", path.join(__dirname, "views"));
 app.set("layout", "layouts/layout");
 // routes
-app.get("/", (req, res) => {
-  res.render("home/index", {
-    title: "Home",
-  });
-});
+app.use("/", authRoutes);
+app.use("/",homeRoutes)
 
 export default app;

@@ -1,0 +1,38 @@
+.navbar-custom {
+    background: #1b1d63;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.brand-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.brand-logo:hover {
+    color: white;
+}
+
+.nav-link {
+    color: rgba(255,255,255,.8) !important;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.search-box {
+    width: 280px;
+}
+
+/* Mobile navbar */
+
+@media (max-width: 768px) {
+
+    .search-box {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+}
