@@ -10,6 +10,7 @@ router.get("/jobs", jobController.renderJobs);
 router.get("/jobs/new", jobController.renderNewJob);
 
 router.post("/jobs", jobController.createJob);
+router.get("/jobs/search", jobController.searchJobs);
 
 router.get("/jobs/:id", jobController.renderJobDetails);
 

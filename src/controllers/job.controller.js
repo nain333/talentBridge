@@ -48,6 +48,25 @@ class JobController {
 
     res.redirect("/jobs");
   }
+  searchJobs(req, res) {
+   const keyword = req.query.keyword?.trim().toLowerCase() || "";
+
+  const jobs = JobModel.getAll().filter((job) => {
+    const skills = Array.isArray(job.skillsrequired)
+      ? job.skillsrequired.join(" ").toLowerCase()
+      : (job.skillsrequired || "").toLowerCase();
+
+    return (
+      job.jobdesignation.toLowerCase().includes(keyword) ||
+      job.companyname.toLowerCase().includes(keyword) ||
+      job.jobcategory.toLowerCase().includes(keyword) ||
+      job.joblocation.toLowerCase().includes(keyword) ||
+      skills.includes(keyword)
+    );
+  });
+
+  res.render("jobs/list", { jobs });
+}
 }
 
 export default new JobController();
