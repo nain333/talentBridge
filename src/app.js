@@ -2,14 +2,12 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.routes.js";
-import homeRoutes from "./routes/home.routes.js"
-import jobRoutes from "./routes/job.routes.js"
-
+import homeRoutes from "./routes/home.routes.js";
+import jobRoutes from "./routes/job.routes.js";
 
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import cookieParser from "cookie-parser";
-
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -27,7 +25,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 app.use((req, res, next) => {
   res.locals.isAuthenticated = !!req.session.recruiterId;
@@ -36,12 +34,12 @@ app.use((req, res, next) => {
   next();
 });
 // view engine
-app.set("view engine","ejs")
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.set("layout", "layouts/layout");
 // routes
 app.use("/", authRoutes);
-app.use("/",homeRoutes)
+app.use("/", homeRoutes);
 app.use("/", jobRoutes);
 
 export default app;
