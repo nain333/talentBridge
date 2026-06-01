@@ -7,15 +7,23 @@
             TalentBridge
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
+        <div
+            class="collapse navbar-collapse"
+            id="navbarContent"
+        >
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-itemd">
+                <li class="nav-item">
                     <a class="nav-link" href="/">
                         Home
                     </a>
@@ -29,7 +37,12 @@
 
                 <li class="nav-item dropdown">
 
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                    >
                         Recruiter
                     </a>
 
@@ -38,41 +51,81 @@
                         <% if (!isAuthenticated) { %>
 
                             <li>
-                                <a class="dropdown-item" href="/login">
+                                <a
+                                    class="dropdown-item"
+                                    href="/login"
+                                >
                                     Login
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/register">
+                                <a
+                                    class="dropdown-item"
+                                    href="/register"
+                                >
                                     Register
                                 </a>
                             </li>
 
-                            <% } else { %>
+                        <% } else { %>
 
-                                <li>
-                                    <form action="/logout" method="POST">
-                                        <button type="submit" class="dropdown-item">
-                                            Logout
-                                        </button>
-                                    </form>
-                                </li>
+                            <li>
+                                <form
+                                    action="/logout"
+                                    method="POST"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="dropdown-item"
+                                    >
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
 
-                                <% } %>
+                        <% } %>
 
                     </ul>
 
-                    <!-- SEARCH -->
-                    <form class="d-flex" action="/jobs/search" method="GET">
-                        <input class="form-control me-2 search-box" type="search" name="keyword"
-                            placeholder="Search jobs">
+                </li>
 
-                        <button class="btn btn-outline-info" type="submit">
-                            Search
-                        </button>
-                    </form>
+                <% if (lastVisit) { %>
+
+                    <li class="nav-item">
+                        <span class="nav-link text-light small">
+                            Last Visit:
+                            <%= lastVisit %>
+                        </span>
+                    </li>
+
+                <% } %>
+
+            </ul>
+
+            <!-- SEARCH -->
+
+            <form
+                class="d-flex"
+                action="/jobs/search"
+                method="GET"
+            >
+                <input
+                    class="form-control me-2 search-box"
+                    type="search"
+                    name="keyword"
+                    placeholder="Search jobs"
+                >
+
+                <button
+                    class="btn btn-outline-info"
+                    type="submit"
+                >
+                    Search
+                </button>
+            </form>
 
         </div>
+
     </div>
 </nav>

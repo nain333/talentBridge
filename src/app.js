@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.routes.js";
 import homeRoutes from "./routes/home.routes.js";
 import jobRoutes from "./routes/job.routes.js";
+import lastVisitMiddleware from "./middlewares/last.visit.middleware.js";
 
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
@@ -21,6 +22,7 @@ app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
+app.use(lastVisitMiddleware);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
