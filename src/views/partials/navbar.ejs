@@ -1,97 +1,78 @@
 <!-- NAVBAR -->
- 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container-fluid">
 
-            <a class="navbar-brand brand-logo" href="/">
-                TalentBridge
-            </a>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
 
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarContent"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <a class="navbar-brand brand-logo" href="/">
+            TalentBridge
+        </a>
 
-            <div
-                class="collapse navbar-collapse"
-                id="navbarContent"
-            >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            Home
-                        </a>
-                    </li>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jobs">
-                            Jobs
-                        </a>
-                    </li>
+                <li class="nav-itemd">
+                    <a class="nav-link" href="/">
+                        Home
+                    </a>
+                </li>
 
-                    <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link" href="/jobs">
+                        Jobs
+                    </a>
+                </li>
 
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                        >
-                            Recruiter
-                        </a>
+                <li class="nav-item dropdown">
 
-                        <ul class="dropdown-menu">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Recruiter
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <% if (!isAuthenticated) { %>
 
                             <li>
-                                <a
-                                    class="dropdown-item"
-                                    href="/login"
-                                >
+                                <a class="dropdown-item" href="/login">
                                     Login
                                 </a>
                             </li>
 
                             <li>
-                                <a
-                                    class="dropdown-item"
-                                    href="/register"
-                                >
+                                <a class="dropdown-item" href="/register">
                                     Register
                                 </a>
                             </li>
 
-                        </ul>
-                    </li>
+                            <% } else { %>
 
-                </ul>
+                                <li>
+                                    <form action="/logout" method="POST">
+                                        <button type="submit" class="dropdown-item">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
 
-                <!-- SEARCH -->
-                <form
-                    class="d-flex"
-                    action="/jobs/search"
-                    method="GET"
-                >
-                    <input
-                        class="form-control me-2 search-box"
-                        type="search"
-                        name="keyword"
-                        placeholder="Search jobs"
-                    >
+                                <% } %>
 
-                    <button
-                        class="btn btn-outline-info"
-                        type="submit"
-                    >
-                        Search
-                    </button>
-                </form>
+                    </ul>
 
-            </div>
+                    <!-- SEARCH -->
+                    <form class="d-flex" action="/jobs/search" method="GET">
+                        <input class="form-control me-2 search-box" type="search" name="keyword"
+                            placeholder="Search jobs">
+
+                        <button class="btn btn-outline-info" type="submit">
+                            Search
+                        </button>
+                    </form>
+
         </div>
-    </nav>
+    </div>
+</nav>

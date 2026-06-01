@@ -26,6 +26,9 @@
                     </a>
 
                     <% if (isAuthenticated) { %>
+                        <a href="/jobs/<%= job.id %>/applicants" class="btn btn-info">
+                            View Applicants
+                        </a>
 
                         <a href="/jobs/<%= job.id %>/edit" class="btn btn-warning">
                             Edit
