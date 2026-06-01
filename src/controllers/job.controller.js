@@ -27,7 +27,7 @@ class JobController {
     const job = JobModel.findById(req.params.id);
 
     if (!job) {
-      return res.status(404).send("Job not found");
+      return res.status(404).render("404");
     }
 
     res.render("jobs/details", { job });
@@ -37,7 +37,7 @@ class JobController {
     const job = JobModel.findById(req.params.id);
 
     if (!job) {
-      return res.status(404).send("Job not found");
+      return res.status(404).render("404");
     }
 
     res.render("jobs/edit", { job });

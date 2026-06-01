@@ -6,7 +6,7 @@ class ApplicantController {
     const job = JobModel.findById(req.params.id);
 
     if (!job) {
-      return res.status(404).send("Job not found");
+      return res.status(404).render("404");
     }
 
     res.render("jobs/apply", {
@@ -19,7 +19,7 @@ class ApplicantController {
     const job = JobModel.findById(req.params.id);
 
     if (!job) {
-      return res.status(404).send("Job not found");
+      return res.status(404).render("404");
     }
 
     if (!req.file) {
@@ -50,7 +50,7 @@ class ApplicantController {
     const job = JobModel.findById(req.params.id);
 
     if (!job) {
-      return res.status(404).send("Job not found");
+      return res.status(404).render("404");
     }
 
     res.render("jobs/applicants", {

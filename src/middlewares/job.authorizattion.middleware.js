@@ -8,7 +8,7 @@ export default function authorizeJobOwner(
   const job = JobModel.findById(req.params.id);
 
   if (!job) {
-    return res.status(404).send("Job not found");
+    return res.status(404).render("404");
   }
 
   if (job.recruiterId !== req.session.recruiterId) {

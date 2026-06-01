@@ -49,5 +49,8 @@ app.set("layout", "layouts/layout");
 app.use("/", authRoutes);
 app.use("/", homeRoutes);
 app.use("/", jobRoutes);
+app.use((req, res) => {
+  res.status(404).render("404");
+});
 
 export default app;
