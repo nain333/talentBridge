@@ -34,6 +34,11 @@ app.use((req, res, next) => {
   res.locals.isAuthenticated = !!req.session.recruiterId;
   res.locals.recruiterId = req.session.recruiterId;
 
+  res.locals.successMessage =
+    req.session.successMessage;
+
+  delete req.session.successMessage;
+
   next();
 });
 // view engine

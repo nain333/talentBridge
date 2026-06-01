@@ -49,6 +49,11 @@ footer {
 .search-box {
   width: 280px;
 }
+.noty_theme__relax.noty_type__success {
+  background-color: #1f206b !important;
+  color: white !important;
+  border-left: 5px solid #ff4fa3 !important;
+}
 
 @media (max-width: 768px) {
   .search-box {
