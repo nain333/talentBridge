@@ -3,7 +3,7 @@ import jobController from "../controllers/job.controller.js";
 
 import applicantController from "../controllers/applicant.controller.js";
 import handleResumeUpload from "../middlewares/resume.validation.middleware.js";
-import authorizeJobOwner from "../middlewares/job.authorizattion.middleware.js";
+import authorizeJobOwner from "../middlewares/job.authorization.middleware.js";
 import sendApplicationEmail from "../middlewares/send.application.email.middleware.js";
 const router = Router();
 

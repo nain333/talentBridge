@@ -2,9 +2,19 @@ import JobModel from "../models/job.model.js";
 
 class JobController {
   renderJobs(req, res) {
-    const jobs = JobModel.getAll();
+    const page = parseInt(req.query.page) || 1;
+    const limit = 3;
 
-    res.render("jobs/list", { jobs });
+    const jobs = JobModel.getPaginated(page, limit);
+
+    const totalPages = JobModel.getTotalPages(limit);
+
+    res.render("jobs/list", {
+      jobs,
+      page,
+      totalPages,
+      keyword:""
+    });
   }
 
   renderNewJob(req, res) {
@@ -18,7 +28,6 @@ class JobController {
     };
 
     JobModel.create(jobData);
-    
 
     res.redirect("/jobs");
   }
@@ -56,8 +65,10 @@ class JobController {
   }
   searchJobs(req, res) {
     const keyword = req.query.keyword?.trim().toLowerCase() || "";
+    const page = parseInt(req.query.page) || 1;
+    const limit = 3;
 
-    const jobs = JobModel.getAll().filter((job) => {
+    const filteredJobs = JobModel.getAll().filter((job) => {
       const skills = Array.isArray(job.skillsrequired)
         ? job.skillsrequired.join(" ").toLowerCase()
         : (job.skillsrequired || "").toLowerCase();
@@ -70,9 +81,16 @@ class JobController {
         skills.includes(keyword)
       );
     });
-    
+    const totalPages = Math.ceil(filteredJobs.length / limit);
 
-    res.render("jobs/list", { jobs });
+    const jobs = filteredJobs.slice((page - 1) * limit, page * limit);
+
+    res.render("jobs/list", {
+      jobs,
+      page,
+      totalPages,
+      keyword
+    });
   }
 }
 

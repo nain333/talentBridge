@@ -124,6 +124,19 @@ class JobModel {
 
     return job;
   }
+  static getPaginated(page, limit) {
+    const startIndex = (page - 1) * limit;
+
+    return this.jobs.slice(
+        startIndex,
+        startIndex + limit
+    );
+}
+static getTotalPages(limit) {
+    return Math.ceil(
+        this.jobs.length / limit
+    );
+}
 }
 
 export default JobModel;

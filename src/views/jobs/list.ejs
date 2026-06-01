@@ -19,14 +19,11 @@
 
         <% if (isAuthenticated) { %>
 
-          <a
-            href="/jobs/new"
-            class="btn btn-primary"
-          >
+          <a href="/jobs/new" class="btn btn-primary">
             Post New Job
           </a>
 
-        <% } %>
+          <% } %>
 
       </div>
 
@@ -34,7 +31,7 @@
 
   </div>
 
-  <% if (jobs.length === 0) { %>
+  <% if (jobs.length===0) { %>
 
     <!-- Empty state -->
 
@@ -52,132 +49,125 @@
 
         <% if (isAuthenticated) { %>
 
-          <a
-            href="/jobs/new"
-            class="btn btn-primary"
-          >
+          <a href="/jobs/new" class="btn btn-primary">
             Create First Job
           </a>
 
-        <% } %>
+          <% } %>
 
       </div>
 
     </div>
 
-  <% } else { %>
+    <% } else { %>
 
-    <div class="row g-4">
+      <div class="row g-4">
 
-      <% jobs.forEach(job => { %>
+        <% jobs.forEach(job=> { %>
 
-        <div class="col-lg-6">
+          <div class="col-lg-6">
 
-          <div class="card shadow-sm border-0 h-100">
+            <div class="card shadow-sm border-0 h-100">
 
-            <div class="card-body">
+              <div class="card-body">
 
-              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="d-flex justify-content-between align-items-start mb-3">
 
-                <div>
+                  <div>
 
-                  <h4 class="fw-semibold mb-1">
+                    <h4 class="fw-semibold mb-1">
 
-                    <a
-                      href="/jobs/<%= job.id %>"
-                      class="text-decoration-none text-dark"
-                    >
-                      <%= job.jobdesignation %>
-                    </a>
+                      <a href="/jobs/<%= job.id %>" class="text-decoration-none text-dark">
+                        <%= job.jobdesignation %>
+                      </a>
 
-                  </h4>
+                    </h4>
 
-                  <p class="text-muted mb-0">
-                    <%= job.companyname %>
+                    <p class="text-muted mb-0">
+                      <%= job.companyname %>
+                    </p>
+
+                  </div>
+
+                  <span class="badge bg-primary">
+                    <%= job.jobcategory %>
+                  </span>
+
+                </div>
+
+                <div class="mb-3">
+
+                  <p class="mb-2">
+                    <strong>Location:</strong>
+                    <%= job.joblocation %>
+                  </p>
+
+                  <p class="mb-2">
+                    <strong>Salary:</strong>
+                    <%= job.salary %>
+                  </p>
+
+                  <p class="mb-2">
+                    <strong>Openings:</strong>
+                    <%= job.numberofopenings %>
+                  </p>
+
+                  <p class="mb-2">
+                    <strong>Apply By:</strong>
+                    <%= job.applyby %>
+                  </p>
+
+                  <p class="mb-0">
+                    <strong>Posted On:</strong>
+                    <%= new Date(job.jobposted).toLocaleDateString() %>
                   </p>
 
                 </div>
 
-                <span class="badge bg-primary">
-                  <%= job.jobcategory %>
-                </span>
+                <div>
 
-              </div>
+                  <strong>Skills Required</strong>
 
-              <div class="mb-3">
+                  <div class="mt-2">
 
-                <p class="mb-2">
-                  <strong>Location:</strong>
-                  <%= job.joblocation %>
-                </p>
+                    <% if (Array.isArray(job.skillsrequired)) { %>
 
-                <p class="mb-2">
-                  <strong>Salary:</strong>
-                  <%= job.salary %>
-                </p>
+                      <% job.skillsrequired.forEach(skill=> { %>
 
-                <p class="mb-2">
-                  <strong>Openings:</strong>
-                  <%= job.numberofopenings %>
-                </p>
+                        <span class="badge bg-secondary me-1 mb-1">
+                          <%= skill %>
+                        </span>
 
-                <p class="mb-2">
-                  <strong>Apply By:</strong>
-                  <%= job.applyby %>
-                </p>
+                        <% }) %>
 
-                <p class="mb-0">
-                  <strong>Posted On:</strong>
-                  <%= new Date(job.jobposted).toLocaleDateString() %>
-                </p>
+                          <% } else { %>
 
-              </div>
+                            <span class="badge bg-secondary">
+                              <%= job.skillsrequired %>
+                            </span>
 
-              <div>
+                            <% } %>
 
-                <strong>Skills Required</strong>
-
-                <div class="mt-2">
-
-                  <% if (Array.isArray(job.skillsrequired)) { %>
-
-                    <% job.skillsrequired.forEach(skill => { %>
-
-                      <span class="badge bg-secondary me-1 mb-1">
-                        <%= skill %>
-                      </span>
-
-                    <% }) %>
-
-                  <% } else { %>
-
-                    <span class="badge bg-secondary">
-                      <%= job.skillsrequired %>
-                    </span>
-
-                  <% } %>
+                  </div>
 
                 </div>
 
               </div>
 
-            </div>
+              <div class="card-footer bg-white">
 
-            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between align-items-center">
 
-              <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">
+                    Applicants:
+                    <%= job.applicants.length %>
+                  </small>
 
-                <small class="text-muted">
-                  Applicants:
-                  <%= job.applicants.length %>
-                </small>
+                  <a href="/jobs/<%= job.id %>" class="btn btn-outline-primary">
+                    View Details
+                  </a>
 
-                <a
-                  href="/jobs/<%= job.id %>"
-                  class="btn btn-outline-primary"
-                >
-                  View Details
-                </a>
+                </div>
 
               </div>
 
@@ -185,12 +175,36 @@
 
           </div>
 
-        </div>
+          <% }) %>
 
-      <% }) %>
+      </div>
 
-    </div>
+      <% } %>
+        <% if (totalPages> 1) { %>
 
-  <% } %>
+          <nav class="mt-5">
+
+            <ul class="pagination justify-content-center">
+
+              <% for(let i=1; i <=totalPages; i++) { %>
+
+                <li class="page-item <%= page === i ? 'active' : '' %>">
+
+                  <a class="page-link" href="<%= keyword
+  ? `/jobs/search?keyword=${keyword}&page=${i}`
+  : `/jobs?page=${i}`
+%>">
+                    <%= i %>
+                  </a>
+
+                </li>
+
+                <% } %>
+
+            </ul>
+
+          </nav>
+
+          <% } %>
 
 </div>

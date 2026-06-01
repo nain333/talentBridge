@@ -25,7 +25,7 @@
                         Back
                     </a>
 
-                    <% if (isAuthenticated) { %>
+                    <% if ( isAuthenticated && recruiterId===job.recruiterId ) { %>
                         <a href="/jobs/<%= job.id %>/applicants" class="btn btn-info">
                             View Applicants
                         </a>
