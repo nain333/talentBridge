@@ -1,0 +1,210 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+      <div class="card shadow border-0">
+
+        <div class="card-body p-5">
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+              <h2 class="fw-bold mb-1">
+                Edit Job
+              </h2>
+
+              <p class="text-muted mb-0">
+                Update the job information below.
+              </p>
+            </div>
+
+            <a
+              href="/jobs/<%= job.id %>"
+              class="btn btn-outline-secondary"
+            >
+              Cancel
+            </a>
+
+          </div>
+
+          <hr class="mb-4">
+
+          <form
+            action="/jobs/<%= job.id %>/edit"
+            method="POST"
+          >
+
+            <div class="mb-3">
+              <label
+                for="jobcategory"
+                class="form-label"
+              >
+                Job Category
+              </label>
+
+              <input
+                id="jobcategory"
+                type="text"
+                name="jobcategory"
+                class="form-control"
+                value="<%= job.jobcategory %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="jobdesignation"
+                class="form-label"
+              >
+                Job Designation
+              </label>
+
+              <input
+                id="jobdesignation"
+                type="text"
+                name="jobdesignation"
+                class="form-control"
+                value="<%= job.jobdesignation %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="companyname"
+                class="form-label"
+              >
+                Company Name
+              </label>
+
+              <input
+                id="companyname"
+                type="text"
+                name="companyname"
+                class="form-control"
+                value="<%= job.companyname %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="joblocation"
+                class="form-label"
+              >
+                Job Location
+              </label>
+
+              <input
+                id="joblocation"
+                type="text"
+                name="joblocation"
+                class="form-control"
+                value="<%= job.joblocation %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="salary"
+                class="form-label"
+              >
+                Salary
+              </label>
+
+              <input
+                id="salary"
+                type="text"
+                name="salary"
+                class="form-control"
+                value="<%= job.salary %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="applyby"
+                class="form-label"
+              >
+                Apply By
+              </label>
+
+              <input
+                id="applyby"
+                type="date"
+                name="applyby"
+                class="form-control"
+                value="<%= job.applyby %>"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label
+                for="skillsrequired"
+                class="form-label"
+              >
+                Skills Required
+              </label>
+
+              <input
+                id="skillsrequired"
+                type="text"
+                name="skillsrequired"
+                class="form-control"
+                value="<%= job.skillsrequired %>"
+                required
+              >
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="numberofopenings"
+                class="form-label"
+              >
+                Number Of Openings
+              </label>
+
+              <input
+                id="numberofopenings"
+                type="number"
+                name="numberofopenings"
+                class="form-control"
+                min="1"
+                value="<%= job.numberofopenings %>"
+                required
+              >
+            </div>
+
+            <div class="d-flex gap-2">
+
+              <button
+                type="submit"
+                class="btn btn-warning"
+              >
+                Update Job
+              </button>
+
+              <a
+                href="/jobs/<%= job.id %>"
+                class="btn btn-outline-secondary"
+              >
+                Cancel
+              </a>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

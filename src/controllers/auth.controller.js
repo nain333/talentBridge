@@ -22,7 +22,11 @@ class AuthController {
 
     if (existingRecruiter) {
       return res.render("auth/register", {
-        error: "Email already registered",
+        errors: [
+          {
+            msg: "Email already registered",
+          },
+        ],
       });
     }
 
@@ -31,7 +35,6 @@ class AuthController {
       email,
       password,
     });
-   
 
     res.redirect("/login");
   }
@@ -44,12 +47,12 @@ class AuthController {
     if (!recruiter || recruiter.password !== password) {
       return res.render("auth/signIn", {
         error: "Invalid credentials",
-        errors:null
+        errors: null,
       });
     }
 
     req.session.recruiterId = recruiter.id;
-    
+
     res.redirect("/jobs");
   }
 

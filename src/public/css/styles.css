@@ -1,54 +1,58 @@
+html,
+body {
+    height: 100%;
+}
 
-        body {
-            min-height: 100vh;
-            background: #14154b;
-            color: white;
-            display: flex;
-            flex-direction: column;
-        }
+body {
+    min-height: 100vh;
+    background: #14154b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.navbar-custom {
+  background: #1b1d63;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-        .navbar-custom {
-            background: #1b1d63;
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
+.brand-logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-decoration: none;
+}
 
-        .brand-logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 300;
-            text-decoration: none;
-        }
+.brand-logo:hover {
+  color: white;
+}
 
-        .brand-logo:hover {
-            color: white;
-        }
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
 
-        .nav-link {
-            color: rgba(255,255,255,.8) !important;
-        }
+.nav-link:hover {
+  color: white !important;
+}
 
-        .nav-link:hover {
-            color: white !important;
-        }
+.main-content {
+  flex: 1 0 auto;
+}
 
-        .main-content {
-            flex: 1;
-        }
+footer {
+  background: #1b1d63;
+  color: rgba(255, 255, 255, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
 
-        footer {
-            background: #1b1d63;
-            color: rgba(255,255,255,.75);
-            border-top: 1px solid rgba(255,255,255,.08);
-        }
+.search-box {
+  width: 280px;
+}
 
-        .search-box {
-            width: 280px;
-        }
-
-        @media (max-width: 768px) {
-            .search-box {
-                width: 100%;
-                margin-top: 10px;
-            }
-        }
-    
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,215 @@
+<div class="container py-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+      <div class="card shadow border-0">
+
+        <div class="card-body p-5">
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+              <h2 class="fw-bold mb-1">
+                Create New Job
+              </h2>
+
+              <p class="text-muted mb-0">
+                Fill in the details to publish a new job posting.
+              </p>
+            </div>
+
+            <a
+              href="/jobs"
+              class="btn btn-outline-secondary"
+            >
+              Cancel
+            </a>
+
+          </div>
+
+          <hr class="mb-4">
+
+          <form
+            action="/jobs"
+            method="POST"
+          >
+
+            <div class="mb-3">
+
+              <label
+                for="jobcategory"
+                class="form-label"
+              >
+                Job Category
+              </label>
+
+              <input
+                id="jobcategory"
+                type="text"
+                name="jobcategory"
+                class="form-control"
+                placeholder="Software Development"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="jobdesignation"
+                class="form-label"
+              >
+                Job Designation
+              </label>
+
+              <input
+                id="jobdesignation"
+                type="text"
+                name="jobdesignation"
+                class="form-control"
+                placeholder="Frontend Developer"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="companyname"
+                class="form-label"
+              >
+                Company Name
+              </label>
+
+              <input
+                id="companyname"
+                type="text"
+                name="companyname"
+                class="form-control"
+                placeholder="Netflix"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="joblocation"
+                class="form-label"
+              >
+                Job Location
+              </label>
+
+              <input
+                id="joblocation"
+                type="text"
+                name="joblocation"
+                class="form-control"
+                placeholder="Remote"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="salary"
+                class="form-label"
+              >
+                Salary
+              </label>
+
+              <input
+                id="salary"
+                type="text"
+                name="salary"
+                class="form-control"
+                placeholder="10 LPA"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="applyby"
+                class="form-label"
+              >
+                Apply By
+              </label>
+
+              <input
+                id="applyby"
+                type="date"
+                name="applyby"
+                class="form-control"
+                required
+              >
+
+            </div>
+
+            <div class="mb-3">
+
+              <label
+                for="skillsrequired"
+                class="form-label"
+              >
+                Skills Required
+              </label>
+
+              <input
+                id="skillsrequired"
+                type="text"
+                name="skillsrequired"
+                class="form-control"
+                placeholder="HTML, CSS, JavaScript"
+                required
+              >
+
+            </div>
+
+            <div class="mb-4">
+
+              <label
+                for="numberofopenings"
+                class="form-label"
+              >
+                Number Of Openings
+              </label>
+
+              <input
+                id="numberofopenings"
+                type="number"
+                name="numberofopenings"
+                class="form-control"
+                min="1"
+                required
+              >
+
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-success"
+            >
+              Create Job
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
