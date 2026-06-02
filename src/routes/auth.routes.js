@@ -11,8 +11,5 @@ router.post("/login",loginValidator,authController.postSignIn);
 router.get("/register", authController.renderRegister);
 router.post("/register", registerValidator,authController.postRegister);
 router.post("/logout", authController.logout);
-router.get("/secret", isAuthenticated, (req, res) => {
-  res.send("Protected Route");
-});
 
 export default router;

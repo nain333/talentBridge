@@ -17,7 +17,7 @@ export const registerValidator = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        console.log('errors:  ', errors)
+        
       return res.render("auth/register", {
         error:null,
         errors: errors.array(),

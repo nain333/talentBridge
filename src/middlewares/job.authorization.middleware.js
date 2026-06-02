@@ -12,7 +12,7 @@ export default function authorizeJobOwner(
   }
 
   if (job.recruiterId !== req.session.recruiterId) {
-    return res.status(403).send("Access denied");
+    return res.status(403).render("403");
   }
 
   next();

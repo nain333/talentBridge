@@ -2,6 +2,9 @@ import RecruiterModel from "../models/recruiter.model.js";
 
 class AuthController {
   renderRegister(req, res) {
+    if (req.session.recruiterId) {
+      return res.redirect("/jobs");
+    }
     res.render("auth/register", {
       error: null,
       errors: [],
@@ -9,6 +12,9 @@ class AuthController {
   }
 
   renderLogin(req, res) {
+    if (req.session.recruiterId) {
+      return res.redirect("/jobs");
+    }
     res.render("auth/signIn", {
       error: null,
       errors: [],
@@ -22,6 +28,7 @@ class AuthController {
 
     if (existingRecruiter) {
       return res.render("auth/register", {
+        error:null,
         errors: [
           {
             msg: "Email already registered",

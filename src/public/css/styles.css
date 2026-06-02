@@ -1,12 +1,13 @@
 html,
 body {
     height: 100%;
+    margin:0;
 }
 
 body {
     min-height: 100vh;
-    background: #14154b;
-    color: white;
+    background: #f6f8fa;
+    color: #24292f;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -36,7 +37,7 @@ body {
 }
 
 .main-content {
-  flex: 1 0 auto;
+  flex: 1 
 }
 
 footer {
@@ -54,7 +55,27 @@ footer {
   color: white !important;
   border-left: 5px solid #ff4fa3 !important;
 }
+.card {
+    border: 1px solid #d0d7de !important;
+    border-radius: 12px;
+}
+.card:hover {
+    transform: translateY(-2px);
+    transition: all .2s ease;
+}
+.btn-primary {
+    background-color: #0969da;
+    border-color: #0969da;
+}
 
+.btn-primary:hover {
+    background-color: #0860ca;
+    border-color: #0860ca;
+}
+.badge.bg-primary {
+    background-color: #ddf4ff !important;
+    color: #0969da !important;
+}
 @media (max-width: 768px) {
   .search-box {
     width: 100%;
